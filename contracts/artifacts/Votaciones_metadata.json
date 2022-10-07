@@ -1,0 +1,138 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "obtenerGanador",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "obtenerTotalDeVotos",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "_totalVotos",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "nacionalidad",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "edad",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "registrarCandidatos",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "nacionalidad",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "edad",
+						"type": "uint256"
+					}
+				],
+				"name": "registrarVotante",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addressCandidato",
+						"type": "address"
+					}
+				],
+				"name": "votar",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Votaciones.sol": "Votaciones"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Votaciones.sol": {
+			"keccak256": "0x726a0d7db018f2dd34ab1ab09f4b4672da14c1e7d7f213d5bd9aec7dbc93b48b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d69a4fab3715af2d0a842d82c0a1b4278aaecfac4c34264936f437d0c55ae223",
+				"dweb:/ipfs/QmZKrw4mK38pHydGom54WfSwZd3VtrzpbEuLtK69i6Fwz1"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0x60b0215121bf25612a6739fb2f1ec35f31ee82e4a8216c032c8243d904ab3aa9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6e29880d33dd479bb046ba306993d26ccb779a4b1d94a046cb3567f22948bb4d",
+				"dweb:/ipfs/QmfTY1qzPt5C63Wc7y6JqfZr5899NRvXYdCpyLzR5FXQic"
+			]
+		}
+	},
+	"version": 1
+}
