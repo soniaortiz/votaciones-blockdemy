@@ -16,7 +16,7 @@ contract Votaciones{
     uint32 totalDeVotos;
     uint fechaHoraLimiteDeVotacion = 1665285283;
     address propietarioDelContrato;
-
+    address[] public direccionDeCandidatos;
     constructor() public{
        propietarioDelContrato = msg.sender;
     }
@@ -36,17 +36,17 @@ contract Votaciones{
     mapping(address => Votante) listaDeVotantes;
     mapping(address => Candidato) listaDeCandidatos;
 
-    function registrarVotante (string memory nombre, string memory nacionalidad, uint edad) validarDerechoDeVoto(nacionalidad, edad) public {
-        listaDeVotantes[msg.sender].puedeVotar = true;
-        listaDeVotantes[msg.sender].votoRegistrado = false;
-        listaDeVotantes[msg.sender].nombre=nombre;
+    function registrarVotante (string memory nombre, string memory nacionalidad, uint edad, address direccionVotante) validarDerechoDeVoto(nacionalidad, edad) public {
+        listaDeVotantes[direccionVotante].puedeVotar = true;
+        listaDeVotantes[direccionVotante].votoRegistrado = false;
+        listaDeVotantes[direccionVotante].nombre=nombre;
     }
 
-    function registrarCandidatos(string memory nombre, string memory nacionalidad, uint edad, uint id) public{
+    function registrarCandidatos(string memory nombre, string memory nacionalidad, uint edad, address direccionCandidato) public{
         require(keccak256(abi.encodePacked((nacionalidad)))==keccak256(abi.encodePacked(('Mexicana'))), 'No puedes ser registrado como candidato, la nacionalidad requerida es Mexicana');
         require(edad>=35, 'No puedes ser registrado como candidato, la edad minima es 35');
-        listaDeCandidatos[msg.sender].id = id;
-        listaDeCandidatos[msg.sender].nombre=nombre;
+        listaDeCandidatos[direccionCandidato].nombre=nombre;
+        direccionDeCandidatos.push(direccionCandidato);
     }
 
 
@@ -58,14 +58,22 @@ contract Votaciones{
         totalDeVotos+=1;
     }
 
-    function obtenerGanador() public returns(uint _votos){
-        return listaDeCandidatos[0xbDA5747bFD65F08deb54cb465eB87D40e51B197E].votos;
+    function obtenerGanador() public returns(Candidato memory _candidato){
+        uint mayorNumeroDeVotos = listaDeCandidatos[direccionDeCandidatos[0]].votos;
+        Candidato memory candidatoGanador = listaDeCandidatos[direccionDeCandidatos[0]];
+
+        for(uint i=0; i<direccionDeCandidatos.length; i++){
+            if(listaDeCandidatos[direccionDeCandidatos[i]].votos>mayorNumeroDeVotos){
+                candidatoGanador = listaDeCandidatos[direccionDeCandidatos[i]];
+            }
+        }
+        return candidatoGanador;
 
     }
 
     modifier limiteDeVotacion{ // Validar que el usuario está votando dentro del horario impuesto
         uint timestamp = block.timestamp;
-        fechaHoraLimiteDeVotacion = timestamp; // cambiar esta linea para permitir el voto
+        fechaHoraLimiteDeVotacion = timestamp; // comentar esta linea para bloquear/cerrar votaciones
         require(timestamp<=fechaHoraLimiteDeVotacion, 'Las votaciones se han cerrado');
         _;
     }

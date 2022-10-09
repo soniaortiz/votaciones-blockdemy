@@ -11,13 +11,49 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "direccionDeCandidatos",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "obtenerGanador",
 				"outputs": [
 					{
-						"internalType": "uint256",
-						"name": "_votos",
-						"type": "uint256"
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "nombre",
+								"type": "string"
+							},
+							{
+								"internalType": "uint32",
+								"name": "votos",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct Votaciones.Candidato",
+						"name": "_candidato",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -41,9 +77,9 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "direccionCandidato",
+						"type": "address"
 					}
 				],
 				"name": "registrarCandidatos",
@@ -67,6 +103,11 @@
 						"internalType": "uint256",
 						"name": "edad",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "direccionVotante",
+						"type": "address"
 					}
 				],
 				"name": "registrarVotante",
@@ -116,11 +157,11 @@
 	},
 	"sources": {
 		"contracts/Votaciones.sol": {
-			"keccak256": "0xf968fdda170cc0b41eb49b48b303adf2b7713cc4a0c4863039e6551b643ef999",
+			"keccak256": "0x16856b2054f1df495f50be3192d14bbf9512f8c168e5d3ceb7bc3af95988acc5",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://4ddd8caf7652bc33c30f06d1e7da1ed8273c7c01bcfc1779a9ba358611ba65b1",
-				"dweb:/ipfs/QmeP1wypE7RAb3EB2ZnDMhF9Gt8mWJ6HNugAyvCs1Qi1Uz"
+				"bzz-raw://26a6969d9d35fad77c7407e19d701fe743cd7b65adb753d4d9b92a0897a750ff",
+				"dweb:/ipfs/QmVnx2oY2yAPzneAHy37fXdVB5nxz6mSVDRZxjM7HS2gkA"
 			]
 		},
 		"hardhat/console.sol": {
