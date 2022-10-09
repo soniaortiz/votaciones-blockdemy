@@ -36,7 +36,7 @@ contract Votaciones{
     mapping(address => Votante) listaDeVotantes;
     mapping(address => Candidato) listaDeCandidatos;
 
-    function registrarVotante (string memory nombre, string memory nacionalidad, uint edad, address direccionVotante) validarDerechoDeVoto(nacionalidad, edad) public {
+    function registrarVotante(string memory nombre, string memory nacionalidad, uint edad, address direccionVotante) validarDerechoDeVoto(nacionalidad, edad) public {
         listaDeVotantes[direccionVotante].puedeVotar = true;
         listaDeVotantes[direccionVotante].votoRegistrado = false;
         listaDeVotantes[direccionVotante].nombre=nombre;
@@ -80,7 +80,8 @@ contract Votaciones{
 
     modifier validarDerechoDeVoto ( string memory nacionalidad, uint edad){ // Propietario valida que cumple con los requisitos para votar
         require(msg.sender == propietarioDelContrato, 'No puedes otorgar derecho a votar');
-        require(keccak256(abi.encodePacked((nacionalidad)))==keccak256(abi.encodePacked(('Mexicana'))), 'No puedes ser registrado como votante, la nacionalidad requerida es Mexicana');
+        require(keccak256(abi.encodePacked((nacionalidad)))==keccak256(abi.encodePacked(('Mexicana'))), 
+            'No puedes ser registrado como votante, la nacionalidad requerida es Mexicana');
         require(edad>=18, 'No puedes votar, eres menor de edad');
         _;
 
