@@ -7,19 +7,17 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "obtenerGanador",
-				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
+				"type": "constructor"
 			},
 			{
 				"inputs": [],
-				"name": "obtenerTotalDeVotos",
+				"name": "obtenerGanador",
 				"outputs": [
 					{
-						"internalType": "uint32",
-						"name": "_totalVotos",
-						"type": "uint32"
+						"internalType": "uint256",
+						"name": "_votos",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -118,11 +116,11 @@
 	},
 	"sources": {
 		"contracts/Votaciones.sol": {
-			"keccak256": "0x726a0d7db018f2dd34ab1ab09f4b4672da14c1e7d7f213d5bd9aec7dbc93b48b",
+			"keccak256": "0xf968fdda170cc0b41eb49b48b303adf2b7713cc4a0c4863039e6551b643ef999",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d69a4fab3715af2d0a842d82c0a1b4278aaecfac4c34264936f437d0c55ae223",
-				"dweb:/ipfs/QmZKrw4mK38pHydGom54WfSwZd3VtrzpbEuLtK69i6Fwz1"
+				"bzz-raw://4ddd8caf7652bc33c30f06d1e7da1ed8273c7c01bcfc1779a9ba358611ba65b1",
+				"dweb:/ipfs/QmeP1wypE7RAb3EB2ZnDMhF9Gt8mWJ6HNugAyvCs1Qi1Uz"
 			]
 		},
 		"hardhat/console.sol": {
